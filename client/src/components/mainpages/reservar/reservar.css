@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;1,600;1,700&display=swap");
+
+
+#section-1 {
+  background: #23568988;
+  padding: 15px 30px;
+  z-index: -1px; }
+  #section-1 img {
+    display: none; }
+  #section-1 #book-place {
+    border-radius: 10px;
+    background: white;
+    padding: 2em; }
+    #section-1 #book-place p {
+      text-align: center;
+      font-size: 18px; }
+    #section-1 #book-place form {
+      margin-top: 15px; }
+      #section-1 #book-place form label {
+        display: block;
+        font-size: 16.5px; }
+      #section-1 #book-place form input {
+        width: 100%;
+        margin-bottom: 7px;
+        padding: 10px 0 10px; }
+      #section-1 #book-place form #submit {
+        margin-left: 8px;
+        border: none;
+        border-radius: 8px;
+        padding: .6em;
+        background: #1da81d;
+        color: #fff;
+        font-size: 20px; }
+        #section-1 #book-place form #submit:hover {
+          background: #106c10; }
+
+
+
+@media only screen and (min-width: 768px) {
+
+  #section-1 {
+    height: 628px; }
+    #section-1 img {
+      display: block;
+      width: 200px;
+      float: left;
+      margin-top: 171px;
+      margin-left: 220px; }
+    #section-1 #book-place {
+      width: 360px;
+      float: right;
+      margin-top: 20px; }
+      #section-1 #book-place form input {
+        width: 90%;
+        padding: 1.5em; }
+      #section-1 #book-place form #submit {
+        margin-left: 25px;
+        margin-top: 15px; }
+ }

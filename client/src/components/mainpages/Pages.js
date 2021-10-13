@@ -11,6 +11,8 @@ import OrderDetails from './history/OrderDetails'
 import NotFound from './utils/not_found/NotFound'
 import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
+import Reservar from './reservar/Reservar'
+
 
 function Pages() {
     const state = useContext(GlobalState)
@@ -24,6 +26,8 @@ function Pages() {
 
             <Route path="/login" exact component={isLogged ? NotFound : Login} />
             <Route path="/register" exact component={isLogged ? NotFound : Register} />
+
+            <Route path="/reservar" exact component={Reservar} />
 
             <Route path="/category" exact component={isAdmin ? Categories : NotFound} />
             <Route path="/create_product" exact component={isAdmin ? CreateProduct : NotFound} />
