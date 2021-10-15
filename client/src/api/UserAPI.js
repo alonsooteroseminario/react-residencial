@@ -48,11 +48,28 @@ function UserAPI(token) {
         }
     }
 
+    const getUser = async () => {
+        try {
+            const res = await axios.get('/user/infor', {
+                headers: {Authorization: token}
+            })
+
+            setIsLogged(true)
+            res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
+
+            setCart(res.data.cart)
+
+        } catch (err) {
+            alert(err.response.data.msg)
+        }
+    }
+
     return {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
         addCart: addCart,
+        getUser: getUser,
         history: [history, setHistory]
     }
 }

@@ -10,7 +10,9 @@ router.get('/logout', userCtrl.logout)
 
 router.get('/refresh_token', userCtrl.refreshToken)
 
-router.get('/infor', auth,  userCtrl.getUser)
+router.get('/infor', auth, userCtrl.getUser)
+
+router.patch('/config', auth, userCtrl.updateTelefonoSheetId)
 
 router.patch('/addcart', auth, userCtrl.addCart)
 

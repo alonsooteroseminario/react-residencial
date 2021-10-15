@@ -12,6 +12,7 @@ import NotFound from './utils/not_found/NotFound'
 import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
 import Reservar from './reservar/Reservar'
+import Config from './config/Config'
 
 
 function Pages() {
@@ -28,6 +29,7 @@ function Pages() {
             <Route path="/register" exact component={isLogged ? NotFound : Register} />
 
             <Route path="/reservar" exact component={Reservar} />
+            <Route path="/configuracion" exact component={Config} />
 
             <Route path="/category" exact component={isAdmin ? Categories : NotFound} />
             <Route path="/create_product" exact component={isAdmin ? CreateProduct : NotFound} />

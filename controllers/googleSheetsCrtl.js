@@ -1,9 +1,10 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const fs = require('fs')
+const Users = require('../models/userModel')
 
 // spreadsheet key is the long id in the sheets URL
-// const RESPONSES_SHEET_ID = '18_G8IMkwxdNdLvKcRXVND0HVI18vJH08RwMMb2Mjx7o';
-const RESPONSES_SHEET_ID = '1gS9gAh-QtarT0xzcpDw4Pccj1rS3tOOqqFsdxVrvJkA';
+const RESPONSES_SHEET_ID = '18_G8IMkwxdNdLvKcRXVND0HVI18vJH08RwMMb2Mjx7o';
+// const RESPONSES_SHEET_ID = '1gS9gAh-QtarT0xzcpDw4Pccj1rS3tOOqqFsdxVrvJkA';
 
 // Create a new document
 const doc = new GoogleSpreadsheet(RESPONSES_SHEET_ID);

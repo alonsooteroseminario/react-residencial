@@ -114,6 +114,21 @@ const userCtrl = {
     },
     history: (req, res) => {
         
+    },
+    updateTelefonoSheetId: async (req, res) => {
+        try{
+            // console.log(req.user)
+            const {email, telefono, sheetId} = req.body;
+            console.log(req.body)
+            await Users.findOneAndUpdate({email: email}, {
+                telefono: telefono,
+                sheetId: sheetId,
+            })
+
+
+        }catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
     }
 }
 

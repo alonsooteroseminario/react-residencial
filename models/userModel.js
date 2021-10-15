@@ -22,6 +22,14 @@ const userSchema = new mongoose.Schema({
     cart: {
         type: Array,
         default: []
+    },
+    telefono: {
+        type: String,
+        default: ''
+    },
+    sheetId: {
+        type: String,
+        default: ''
     }
 }, {
     timestamps: true
