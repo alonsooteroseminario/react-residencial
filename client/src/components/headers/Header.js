@@ -25,8 +25,8 @@ function Header() {
         return(
             <>
                 <li><Link to="/configuracion">Configuración</Link></li>
-                <li><Link to="/create_product">Create Product</Link></li>
-                <li><Link to="/category">Categories</Link></li>
+                {/* <li><Link to="/create_product">Create Product</Link></li>
+                <li><Link to="/category">Categories</Link></li> */}
             </>
         )
     }

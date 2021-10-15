@@ -31,25 +31,45 @@ function OrderHistory() {
 
     return (
         <div className="history-page">
-            <h2>History</h2>
+            <h2>Historia de Reservas</h2>
 
-            <h4>You have {history.length} ordered</h4>
+            <h4>Tienes {history.length} reservas antiguas</h4>
 
             <table>
                 <thead>
                     <tr>
-                        <th>Payment ID</th>
-                        <th>Date of Purchased</th>
-                        <th></th>
+                        <th>Email</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Telefono</th>
+                        <th>Ciudad</th>
+                        <th>Habitaciones</th>
+                        <th>Fecha de Ingreso</th>
+                        <th>Hora de Ingreso</th>
+                        <th>Hora de Salida</th>
+                        <th>Forma de Pago</th>
+                        <th>Hora de Registro</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         history.map(items => (
                             <tr key={items._id}>
+
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
+                                <td>{items.paymentID}</td>
                                 <td>{items.paymentID}</td>
                                 <td>{new Date(items.createdAt).toLocaleDateString()}</td>
                                 <td><Link to={`/history/${items._id}`}>View</Link></td>
+
                             </tr>
                         ))
                     }

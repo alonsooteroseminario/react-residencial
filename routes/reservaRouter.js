@@ -2,11 +2,18 @@ const router = require('express').Router()
 const reservaCtrl = require('../controllers/reservaCtrl')
 const auth = require('../middleware/auth')
 const authAdmin = require('../middleware/authAdmin')
+const Users = require('../models/userModel')
 
 const { client } = require('../controllers/msgCrtl')
-const { getRow, addRow, updateRow, deleteRow } = require('../controllers/googleSheetsCrtl')
+const GoogleSheet = require('../controllers/googleSheetsCrtl')
+const googleSheet = new GoogleSheet()
 
-router.post('/reservar/enviar', (req, res) => {
+const getTelefonoWhatsapp = async () => {
+  let user = await Users.findOne({role: 1})
+  return user.telefono
+}
+
+router.post('/reservar/enviar', async (req, res) => {
     const data = req.body;
     data.horaRegistro = new Date().toTimeString()
   
@@ -28,14 +35,15 @@ router.post('/reservar/enviar', (req, res) => {
               Forma de Pago: ${data.formaPago} `,
       // mediaUrl: ['https://www.investingmoney.biz/public/img/art/xl/18012019161021Twilio-IoT.jpg'],
       from: 'whatsapp:+14155238886',
-      to: 'whatsapp:+56956942823'
+      to: `whatsapp:${await getTelefonoWhatsapp()}`
       })
     .then(message => console.log(message.sid))
     .catch(console.log)  
   
     let rows = [data];
   
-    addRow(rows);
+    // addRow(rows);
+    await googleSheet.addRow(rows)
   
 })
 
