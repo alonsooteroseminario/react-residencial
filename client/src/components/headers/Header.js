@@ -34,7 +34,7 @@ function Header() {
     const loggedRouter = () =>{
         return(
             <>
-                <li><Link to="/history">History</Link></li>
+                <li><Link to="/history">Historial</Link></li>
                 <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
             </>
         )
@@ -59,7 +59,7 @@ function Header() {
 
             <ul style={styleMenu}>
                 
-                <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li>
+                {/* <li><Link to="/">{isAdmin ? 'Products' : 'Shop'}</Link></li> */}
                 <li><Link to="/reservar">Reservar</Link></li>
                 
                 {isAdmin && adminRouter()}

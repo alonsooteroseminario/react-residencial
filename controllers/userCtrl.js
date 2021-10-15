@@ -1,6 +1,8 @@
 const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+let GoogleSheet = require('./googleSheetsCrtl')
+let googleSheet = new GoogleSheet()
 
 const userCtrl = {
     register: async (req, res) => {
@@ -112,8 +114,14 @@ const userCtrl = {
             return res.status(500).json({msg: err.message})
         }
     },
-    history: (req, res) => {
-        
+    history: async (req, res) => {
+        try{
+            let row = await googleSheet.getRow()
+
+            res.json(row)
+        }catch (err){
+            return res.status(500).json({msg: err.message})
+        }
     },
     updateTelefonoSheetId: async (req, res) => {
         try{

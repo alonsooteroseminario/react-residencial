@@ -14,15 +14,16 @@ function OrderHistory() {
         if(token){
             const getHistory = async() =>{
                 if(isAdmin){
-                    const res = await axios.get('/api/payment', {
-                        headers: {Authorization: token}
-                    })
-                    setHistory(res.data)
-                }else{
                     const res = await axios.get('/user/history', {
                         headers: {Authorization: token}
                     })
+                    console.log(res.data)
                     setHistory(res.data)
+                }else{
+                    // const res = await axios.get('/user/history', {
+                    //     headers: {Authorization: token}
+                    // })
+                    // setHistory(res.data)
                 }
             }
             getHistory()
@@ -31,9 +32,9 @@ function OrderHistory() {
 
     return (
         <div className="history-page">
-            <h2>Historia de Reservas</h2>
+            <h2>Historial de Reservas</h2>
 
-            <h4>Tienes {history.length} reservas antiguas</h4>
+            <h4>Tienes {history.length} reservas registradas</h4>
 
             <table>
                 <thead>
@@ -55,20 +56,21 @@ function OrderHistory() {
                 <tbody>
                     {
                         history.map(items => (
-                            <tr key={items._id}>
+                            <tr>
 
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{items.paymentID}</td>
-                                <td>{new Date(items.createdAt).toLocaleDateString()}</td>
-                                <td><Link to={`/history/${items._id}`}>View</Link></td>
+                                <td>{items.email}</td>
+                                <td>{items.nombre}</td>
+                                <td>{items.apellido}</td>
+                                <td>{items.dni}</td>
+                                <td>{items.telefono}</td>
+                                <td>{items.ciudad}</td>
+                                <td>{items.habitaciones}</td>
+                                <td>{items.fechaIngreso}</td>
+                                <td>{items.horaIngreso}</td>
+                                <td>{items.horaSalida}</td>
+                                <td>{items.formaPago}</td>
+                                <td>{items.horaRegistro}</td>
+                                <td><Link to={`/history/${items[0]}`}>View</Link></td>
 
                             </tr>
                         ))
