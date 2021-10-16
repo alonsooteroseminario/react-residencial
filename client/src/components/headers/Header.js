@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
 import Menu from './icon/menu.svg'
 import Close from './icon/close.svg'
-import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
@@ -10,7 +9,6 @@ function Header() {
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
-    const [cart] = state.userAPI.cart
     const [menu, setMenu] = useState(false)
 
     const logoutUser = async () =>{
@@ -53,7 +51,7 @@ function Header() {
 
             <div className="logo">
                 <h1>
-                    <Link to="/">{isAdmin ? 'Admin' : 'DevAT Shop'}</Link>
+                    <Link to="/">{isAdmin ? 'Administrador' : 'residencial'}</Link>
                 </h1>
             </div>
 
@@ -74,7 +72,7 @@ function Header() {
 
             </ul>
 
-            {
+            {/* {
                 isAdmin ? '' 
                 :<div className="cart-icon">
                     <span>{cart.length}</span>
@@ -82,7 +80,7 @@ function Header() {
                         <img src={Cart} alt="" width="30" />
                     </Link>
                 </div>
-            }
+            } */}
             
         </header>
     )

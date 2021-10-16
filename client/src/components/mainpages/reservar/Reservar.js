@@ -1,8 +1,11 @@
-import React, {useState, useContext} from 'react'
-import {GlobalState} from '../../../GlobalState'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import {GlobalState} from '../../../GlobalState'
 
 function Reservar() {
+
+    const state = useContext(GlobalState)
+    const [token] = state.token
 
     const [user, setUser] = useState({
         email:'', 
@@ -32,6 +35,34 @@ function Reservar() {
             alert(err.response.data.msg)
         }
     }
+
+    useEffect(() => {
+        if(token){
+            const getUser = async () => {
+                const resUser = await axios.get('/user/infor', {
+                    headers: {Authorization: token}
+                })
+                // console.log(resUser.data)
+                let nombre = resUser.data.name
+                const splitNombre = nombre.split(" ")
+                console.log(splitNombre)
+                setUser({
+                    email: resUser.data.email, 
+                    nombre: splitNombre[0], 
+                    apellido: splitNombre[1], 
+                    dni: '', 
+                    telefono: '', 
+                    ciudad: '', 
+                    habitaciones: '',
+                    fechaIngreso: '',
+                    horaIngreso: '',
+                    horaSalida: '',
+                    formaPago: ''
+                })
+            }
+            getUser()
+        }
+    },[token])
 
     return (
         <>

@@ -8,7 +8,6 @@ function OrderHistory() {
     const [history, setHistory] = state.userAPI.history
     const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token
-    
 
     useEffect(() => {
         if(token){
@@ -17,13 +16,21 @@ function OrderHistory() {
                     const res = await axios.get('/user/history', {
                         headers: {Authorization: token}
                     })
-                    console.log(res.data)
+
                     setHistory(res.data)
                 }else{
-                    // const res = await axios.get('/user/history', {
-                    //     headers: {Authorization: token}
-                    // })
-                    // setHistory(res.data)
+                    const res = await axios.get('/user/history', {
+                        headers: {Authorization: token}
+                    })
+                    const resUser = await axios.get('/user/infor', {
+                        headers: {Authorization: token}
+                    })
+
+                    let array = res.data
+
+                    let filtroArray = array.filter( elem => elem.email === resUser.data.email)
+
+                    setHistory(filtroArray)
                 }
             }
             getHistory()

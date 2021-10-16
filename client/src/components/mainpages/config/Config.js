@@ -5,7 +5,6 @@ import axios from 'axios'
 function Config() {
 
     const state = useContext(GlobalState)
-    const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token
     const [user, setUser] = useState({})
 
