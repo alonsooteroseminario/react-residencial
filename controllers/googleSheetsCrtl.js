@@ -29,14 +29,11 @@ class GoogleSheet {
     
         // Get all the rows
         let rows = await sheet.getRows();
-        // console.log(rows)
-
 
         let list = []
 
         // console.log(rows)
 
-    
         for (let index = 0; index < rows.length; index++) {
             const row = rows[index];
             // console.log(row._rawData[0])
@@ -73,6 +70,7 @@ class GoogleSheet {
     
         // Index of the sheet
         let sheet = this.doc.sheetsByIndex[0];
+
     
         for (let index = 0; index < rows.length; index++) {
             const row = rows[index];
