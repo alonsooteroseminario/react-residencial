@@ -11,14 +11,14 @@ const getSheetID = async () => {
 class GoogleSheet {
     constructor() {
         // Credentials for the service account
-        this.CREDENTIALS = JSON.parse(fs.readFileSync('./googleConfig.json'));
+        // this.CREDENTIALS = JSON.parse(fs.readFileSync('./googleConfig.json'));
     }
     async getRow() {
         this.doc = new GoogleSpreadsheet(await getSheetID());
         // use service account creds
         await this.doc.useServiceAccountAuth({
-            client_email: this.CREDENTIALS.client_email,
-            private_key: this.CREDENTIALS.private_key
+            client_email: process.env.CLIENT_EMAIL,
+            private_key: process.env.PRIVATE_KEY
         });
     
         // load the documents info
@@ -62,8 +62,8 @@ class GoogleSheet {
         this.doc = new GoogleSpreadsheet(await getSheetID());
         // use service account creds
         await this.doc.useServiceAccountAuth({
-            client_email: this.CREDENTIALS.client_email,
-            private_key: this.CREDENTIALS.private_key
+            client_email: process.env.CLIENT_EMAIL,
+            private_key: process.env.PRIVATE_KEY
         });
     
         await this.doc.loadInfo();
@@ -81,8 +81,8 @@ class GoogleSheet {
         this.doc = new GoogleSpreadsheet(await getSheetID());
         // use service account creds
         await this.doc.useServiceAccountAuth({
-            client_email: this.CREDENTIALS.client_email,
-            private_key: this.CREDENTIALS.private_key
+            client_email: process.env.CLIENT_EMAIL,
+            private_key: process.env.PRIVATE_KEY
         });
     
         await this.doc.loadInfo();
@@ -105,8 +105,8 @@ class GoogleSheet {
         this.doc = new GoogleSpreadsheet(await getSheetID());
         // use service account creds
         await this.doc.useServiceAccountAuth({
-            client_email: this.CREDENTIALS.client_email,
-            private_key: this.CREDENTIALS.private_key
+            client_email: process.env.CLIENT_EMAIL,
+            private_key: process.env.PRIVATE_KEY
         });
     
         await this.doc.loadInfo();
