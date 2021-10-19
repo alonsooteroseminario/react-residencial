@@ -15,10 +15,13 @@ class GoogleSheet {
     }
     async getRow() {
         this.doc = new GoogleSpreadsheet(await getSheetID());
+
         // use service account creds
         await this.doc.useServiceAccountAuth({
             client_email: process.env.CLIENT_EMAIL,
-            private_key: process.env.PRIVATE_KEY
+            private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+            // client_email: this.CREDENTIALS.client_email,
+            // private_key: this.CREDENTIALS.private_key
         });
     
         // load the documents info
@@ -63,7 +66,9 @@ class GoogleSheet {
         // use service account creds
         await this.doc.useServiceAccountAuth({
             client_email: process.env.CLIENT_EMAIL,
-            private_key: process.env.PRIVATE_KEY
+            private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+            // client_email: this.CREDENTIALS.client_email,
+            // private_key: this.CREDENTIALS.private_key
         });
     
         await this.doc.loadInfo();
@@ -82,7 +87,9 @@ class GoogleSheet {
         // use service account creds
         await this.doc.useServiceAccountAuth({
             client_email: process.env.CLIENT_EMAIL,
-            private_key: process.env.PRIVATE_KEY
+            private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+            // client_email: this.CREDENTIALS.client_email,
+            // private_key: this.CREDENTIALS.private_key
         });
     
         await this.doc.loadInfo();
@@ -106,7 +113,9 @@ class GoogleSheet {
         // use service account creds
         await this.doc.useServiceAccountAuth({
             client_email: process.env.CLIENT_EMAIL,
-            private_key: process.env.PRIVATE_KEY
+            private_key: process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+            // client_email: this.CREDENTIALS.client_email,
+            // private_key: this.CREDENTIALS.private_key
         });
     
         await this.doc.loadInfo();
